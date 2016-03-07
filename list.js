@@ -13,7 +13,12 @@ class List {
     this.tail = null
   }
 
-  add (node) {
+  addHead (node) {
+    node.next = this.head
+    this.head = node
+  }
+
+  addTail (node) {
     if (this.head) {
       this.tail.next = node
       this.tail = node
@@ -21,6 +26,21 @@ class List {
       this.head = node
       this.tail = node
     }
+  }
+
+  removeTail () {
+    let current = this.head
+
+    while (current.next !== this.tail) {
+      current = current.next
+    }
+
+    current.next = null
+    this.tail = current
+  }
+
+  removeHead () {
+    this.head = this.head.next
   }
 }
 
