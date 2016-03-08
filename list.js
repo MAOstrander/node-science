@@ -14,6 +14,7 @@ class List {
   }
 
   addHead (node) {
+    this.tail = this.tail || node
     node.next = this.head
     this.head = node
   }
@@ -21,11 +22,11 @@ class List {
   addTail (node) {
     if (this.head) {
       this.tail.next = node
-      this.tail = node
     } else {
       this.head = node
-      this.tail = node
     }
+
+    this.tail = node
   }
 
   removeTail () {
@@ -41,25 +42,29 @@ class List {
 
   removeHead () {
     this.head = this.head.next
+
+    if (!this.head) {
+      this.tail = null
+    }
   }
 
   get (index) {
     let current = this.head
 
-    for (;index > 0; index--) {
+    while (index > 0) {
       current = current.next
+      index--
     }
 
     return current
   }
-
 }
 
 const list = new List
-list.add(new Node('A'))
-list.add(new Node('B'))
-list.add(new Node('C'))
-list.add(new Node('D'))
-list.add(new Node('E'))
-list.add(new Node('F'))
+list.addTail(new Node('A'))
+list.addTail(new Node('B'))
+list.addTail(new Node('C'))
+list.addTail(new Node('D'))
+list.addTail(new Node('E'))
+list.addTail(new Node('F'))
 console.log(list)
