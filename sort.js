@@ -27,4 +27,46 @@ function bubbleSort (array) {
   return array
 }
 
-console.log('bubble', bubbleSort(arr))
+// console.log('bubble', bubbleSort(arr))
+
+function insertSort (array) {
+  for (let i = 1; i < array.length; i++) {
+    for (let j = i; j >= 0; j--) {
+      console.log(JSON.stringify(array))
+      if (array[j] < array[j-1]) {
+        swap(array, j, j-1)
+          console.log(chalk.red(JSON.stringify(array)))
+      }
+    }
+  }
+
+  return array
+}
+
+// console.log('insert', insertSort(arr))
+
+
+function selectSort (array) {
+
+  for (let i = 0; i < array.length-1; i++) {
+    console.log(JSON.stringify(array))
+    let minIndex = i;
+    let min = array[i];
+    for (let j = i+1; j < array.length; j++) {
+      if (array[j] < min) {
+        min = array[j];
+        minIndex = j;
+      }
+    }
+
+    if (array[minIndex] !== array[i]) {
+      swap(array, i, minIndex)
+      console.log(chalk.red(JSON.stringify(array)))
+    }
+  }
+
+  return array
+}
+
+console.log('select', selectSort(arr))
+
