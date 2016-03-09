@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/MAOstrander/node-science/issues"
   },
-  "homepage": "https://github.com/MAOstrander/node-science#readme"
+  "homepage": "https://github.com/MAOstrander/node-science#readme",
+  "dependencies": {
+    "lodash": "^4.6.1"
+  }
 }
